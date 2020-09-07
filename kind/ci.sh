@@ -34,11 +34,6 @@ kubectl wait --for=condition=ready --timeout=120s pod -l name=web-waltham
 kubectl wait --for=condition=ready pod -l run=haproxy-ingress -n haproxy-controller
 printf  "sleep a bit more to be consistent\n"
 sleep 10
-
 printf  "fetch 8 requests from 4 different pods for hr.haproxy...\n"
 x=1; while [ $x -le 8 ]; do curl --header "Host: hr.haproxy" 127.0.0.1:30080/gids; x=$(( $x + 1 )); done
-printf  "\nfetch 4 requests from 2 different pods for fr.haproxy...\n"
-x=1; while [ $x -le 4 ]; do curl --header "Host: fr.haproxy" 127.0.0.1:30080/gids; x=$(( $x + 1 )); done
-printf  "\nfetch 2 requests from 2 different pods for tcp service ...\n"
-x=1; while [ $x -le 2 ]; do curl 127.0.0.1:32766/gids; x=$(( $x + 1 )); done
 printf  "\nsetup done.\n"

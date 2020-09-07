@@ -10,15 +10,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '^1.15.1' # The Go version to download (if necessary) and use.
     - uses: engineerd/setup-kind@v0.4.0
       with:
           name: dev
           config: kind/kind-config.yaml
           image: kindest/node:${{ matrix.k8s-version }}
           version: v0.8.1          
-    - name: Testing
+    - name: Setup
       run: |
         kubectl cluster-info
         docker build -t haproxytech/kubernetes-ingress -f build/Dockerfile .
         kind --name=dev load docker-image haproxytech/kubernetes-ingress:latest
         kind/ci.sh
+    - name: Test
+      run: |
+        go run kind/test.go
