@@ -1,6 +1,7 @@
 #!/bin/bash
 
-kubectl cluster-info --context kind-dev
+docker build -t haproxytech/kubernetes-ingress -f build/Dockerfile .
+kind --name=dev load docker-image haproxytech/kubernetes-ingress:latest
 
 docker build -t go-web-simple:1.1 https://github.com/oktalz/go-web-simple.git#v1.1.5:.
 kind --name="dev" load docker-image go-web-simple:1.1

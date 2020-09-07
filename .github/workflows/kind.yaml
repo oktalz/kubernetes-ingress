@@ -20,11 +20,6 @@ jobs:
           image: kindest/node:${{ matrix.k8s-version }}
           version: v0.8.1          
     - name: Setup
-      run: |
-        kubectl cluster-info
-        docker build -t haproxytech/kubernetes-ingress -f build/Dockerfile .
-        kind --name=dev load docker-image haproxytech/kubernetes-ingress:latest
-        deploy/kind/ci.sh
+      run: deploy/kind/ci.sh
     - name: Test
-      run: |
-        go run deploy/kind/test.go
+      run: go run deploy/kind/test.go
