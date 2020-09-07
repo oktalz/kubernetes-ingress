@@ -5,7 +5,8 @@ jobs:
   kind:    
     strategy:
         matrix:
-          k8s-version: ['v1.16.9', 'v1.17.5', 'v1.18.6']
+          k8s-version: ['v1.18.6']
+          #k8s-version: ['v1.16.9', 'v1.17.5', 'v1.18.6']
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
