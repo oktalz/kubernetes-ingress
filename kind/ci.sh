@@ -8,13 +8,13 @@ kubectl cluster-info --context kind-dev
 docker build -t go-web-simple:1.1 https://github.com/oktalz/go-web-simple.git#v1.1.1:.
 kind --name="dev" load docker-image  go-web-simple:1.1
 
-sed -e 's/#GROUP#/zagreb/g' -e  's/1 #NUMBER#/4/g' web/web-rc.yml | kubectl apply -f -
+sed -e 's/#GROUP#/zagreb/g' -e  's/1 #NUMBER#/4/g' kind/web/web-rc.yml | kubectl apply -f -
 sed 's/#GROUP#/zagreb/g' kind/web/web-svc.yml | kubectl apply -f -
 
-sed -e 's/#GROUP#/paris/g' -e  's/1 #NUMBER#/2/g' web/web-rc.yml | kubectl apply -f -
+sed -e 's/#GROUP#/paris/g' -e  's/1 #NUMBER#/2/g' kind/web/web-rc.yml | kubectl apply -f -
 sed 's/#GROUP#/paris/g' kind/web/web-svc.yml | kubectl apply -f -
 
-sed -e 's/#GROUP#/waltham/g' -e  's/1 #NUMBER#/2/g' web/web-rc.yml | kubectl apply -f -
+sed -e 's/#GROUP#/waltham/g' -e  's/1 #NUMBER#/2/g' kind/web/web-rc.yml | kubectl apply -f -
 sed 's/#GROUP#/waltham/g' kind/web/web-svc.yml | kubectl apply -f -
 
 kubectl apply -f kind/config/0.namespace.yaml
