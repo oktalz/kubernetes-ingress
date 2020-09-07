@@ -5,6 +5,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"strings"
 )
 
@@ -33,8 +34,13 @@ func parseResponse(body []byte) Response {
 			ID:      response[1],
 		}
 	}
-	log.Panicf("unexpected result [%s]", string(body))
+	failAndExit("unexpected result [%s]", string(body))
 	return Response{}
+}
+
+func failAndExit(msg string, a ...interface{}) {
+	fmt.Printf(msg, a...)
+	os.Exit(1)
 }
 
 func checkErr(err error) {
@@ -65,7 +71,7 @@ func main() {
 	}
 	for k, v := range counter {
 		if v != 2 {
-			log.Panicf("expected 2 responses from %s, got %d", k, v)
+			failAndExit("expected 2 responses from %s, got %d", k, v)
 		}
 	}
 
@@ -76,7 +82,7 @@ func main() {
 	}
 	for k, v := range counter {
 		if v != 2 {
-			log.Panicf("expected 2 responses from %s, got %d", k, v)
+			failAndExit("expected 2 responses from %s, got %d", k, v)
 		}
 	}
 
@@ -87,7 +93,7 @@ func main() {
 	}
 	for k, v := range counter {
 		if v != 4 {
-			log.Panicf("expected 2 responses from %s, got %d", k, v)
+			failAndExit("expected 2 responses from %s, got %d", k, v)
 		}
 	}
 
@@ -97,14 +103,14 @@ func main() {
 		counter[r.Name()]++
 	}
 	if len(counter) != 1 {
-		log.Panicf("expected one service responding")
+		failAndExit("expected one service responding")
 	}
 	v, ok := counter["default backend - 404"]
 	if !ok {
 		log.Panic("expected result from `default backend - 404`")
 	}
 	if v != 5 {
-		log.Panicf("expected 4 responses from %s, got %d", "default backend - 404", v)
+		failAndExit("expected 4 responses from %s, got %d", "default backend - 404", v)
 	}
 
 }
