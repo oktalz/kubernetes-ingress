@@ -20,3 +20,4 @@ jobs:
         kubectl cluster-info
         docker build -t haproxytech/kubernetes-ingress -f build/Dockerfile .
         kind --name=dev load docker-image haproxytech/kubernetes-ingress:latest
+        kind/ci.sh
