@@ -16,7 +16,7 @@ jobs:
     - uses: engineerd/setup-kind@v0.4.0
       with:
           name: dev
-          config: kind/kind-config.yaml
+          config: deploy/kind/kind-config.yaml
           image: kindest/node:${{ matrix.k8s-version }}
           version: v0.8.1          
     - name: Setup
@@ -24,7 +24,7 @@ jobs:
         kubectl cluster-info
         docker build -t haproxytech/kubernetes-ingress -f build/Dockerfile .
         kind --name=dev load docker-image haproxytech/kubernetes-ingress:latest
-        kind/ci.sh
+        deploy/kind/ci.sh
     - name: Test
       run: |
-        go run kind/test.go
+        go run deploy/kind/test.go

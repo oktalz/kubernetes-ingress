@@ -109,8 +109,7 @@ func main() {
 	if !ok {
 		log.Panic("expected result from `default backend - 404`")
 	}
-	if v != 5 {
+	if v != 4 {
 		failAndExit("expected 4 responses from %s, got %d", "default backend - 404", v)
 	}
-
 }

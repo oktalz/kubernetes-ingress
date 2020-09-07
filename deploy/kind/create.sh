@@ -5,7 +5,7 @@ kind create cluster --name dev --config kind-config.yaml
 
 kubectl cluster-info --context kind-dev
 
-docker build -t go-web-simple:1.1 https://github.com/oktalz/go-web-simple.git#v1.1.1:.
+docker build -t go-web-simple:1.1 https://github.com/oktalz/go-web-simple.git#v1.1.5:.
 kind --name="dev" load docker-image  go-web-simple:1.1
 
 sed -e 's/#GROUP#/zagreb/g' -e  's/1 #NUMBER#/4/g' web/web-rc.yml | kubectl apply -f -
