@@ -2,19 +2,21 @@ name: "KinD cluster test"
 on: [pull_request, push]
 
 jobs:
-  kind:
+  kind:    
+    strategy:
+        matrix:
+          k8s-version: ['v1.16.9', 'v1.17.5', 'v1.18.6']
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
     - uses: engineerd/setup-kind@v0.4.0
       with:
-          version: "v0.8.1"
-          name: "dev"
+          name: dev
+          config: kind/kind-config.yaml
+          image: kindest/node:${{ matrix.k8s-version }}
+          version: v0.8.1          
     - name: Testing
       run: |
         kubectl cluster-info
-        kubectl get pods -n kube-system
-        echo "current-context:" $(kubectl config current-context)
-        echo "environment-kubeconfig:" ${KUBECONFIG}
         docker build -t haproxytech/kubernetes-ingress -f build/Dockerfile .
         kind --name=dev load docker-image haproxytech/kubernetes-ingress:latest
