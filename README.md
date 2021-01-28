@@ -1,4 +1,5 @@
 # ![HAProxy](https://github.com/haproxytech/kubernetes-ingress/raw/master/assets/images/haproxy-weblogo-210x49.png "HAProxy")
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Foktalz%2Fkubernetes-ingress.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Foktalz%2Fkubernetes-ingress?ref=badge_shield)
 
 ## HAProxy Kubernetes Ingress Controller
 
@@ -46,3 +47,6 @@ To ask questions, get some help or even have a little chat, you can join our #in
 ## License
 
 [Apache License 2.0](LICENSE)
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Foktalz%2Fkubernetes-ingress.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Foktalz%2Fkubernetes-ingress?ref=badge_large)
