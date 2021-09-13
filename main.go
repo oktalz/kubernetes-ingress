@@ -139,6 +139,7 @@ func main() {
 	if osArgs.External {
 		cfg = setupHAProxyEnv(osArgs)
 	}
+	cfg.Test = osArgs.Test
 	err = renameio.WriteFile(cfg.Env.MainCFGFile, haproxyConf, 0755)
 	if err != nil {
 		logger.Panic(err)

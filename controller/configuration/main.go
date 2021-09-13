@@ -38,6 +38,7 @@ type ControllerCfg struct {
 	Env             Env
 	HTTPS           bool
 	SSLPassthrough  bool
+	Test            bool
 }
 
 // Directories and files required by haproxy and controller
@@ -153,7 +154,11 @@ func (c *ControllerCfg) envInit() (err error) {
 	if c.Env.RuntimeSocket == "" {
 		c.Env.RuntimeSocket = filepath.Join(c.Env.RuntimeDir, "haproxy-runtime-api.sock")
 	}
-	for _, file := range []string{c.Env.HAProxyBinary, c.Env.MainCFGFile} {
+	checks := []string{c.Env.MainCFGFile}
+	if !c.Test {
+		checks = append(checks, c.Env.HAProxyBinary)
+	}
+	for _, file := range checks {
 		if _, err = os.Stat(file); err != nil {
 			return err
 		}
