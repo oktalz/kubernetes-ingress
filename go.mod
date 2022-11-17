@@ -11,7 +11,7 @@ require (
 	github.com/haproxytech/config-parser/v4 v4.0.0-rc2.0.20220428133329-7d0ec01198d4
 	github.com/jessevdk/go-flags v1.4.0
 	github.com/pires/go-proxyproto v0.6.2
-	github.com/prometheus/client_golang v1.13.0
+	github.com/prometheus/client_golang v1.14.0
 	github.com/stretchr/testify v1.8.0
 	github.com/valyala/fasthttp v1.40.0
 	go.uber.org/automaxprocs v1.5.1
@@ -63,7 +63,7 @@ require (
 	github.com/munnerz/goautoneg v0.0.0-20191010083416-a7dc8b61c822 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pmezard/go-difflib v1.0.0 // indirect
-	github.com/prometheus/client_model v0.2.0 // indirect
+	github.com/prometheus/client_model v0.3.0 // indirect
 	github.com/prometheus/common v0.37.0 // indirect
 	github.com/prometheus/procfs v0.8.0 // indirect
 	github.com/savsgio/gotils v0.0.0-20220530130905-52f3993e8d6d // indirect
