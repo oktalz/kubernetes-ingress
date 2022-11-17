@@ -15,9 +15,9 @@ require (
 	github.com/stretchr/testify v1.8.0
 	github.com/valyala/fasthttp v1.40.0
 	go.uber.org/automaxprocs v1.5.1
-	k8s.io/api v0.25.2
-	k8s.io/apimachinery v0.25.2
-	k8s.io/client-go v0.25.2
+	k8s.io/api v0.25.4
+	k8s.io/apimachinery v0.25.4
+	k8s.io/client-go v0.25.4
 )
 
 require (
