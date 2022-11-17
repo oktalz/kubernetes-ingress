@@ -11,5 +11,4 @@ updates:
     interval: daily
   open-pull-requests-limit: 5
   commit-message:
-    # Prefix all commit messages with "npm"
     prefix: "BUILD/MINOR: "
