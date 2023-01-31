@@ -3,7 +3,7 @@ module github.com/haproxytech/kubernetes-ingress
 go 1.19
 
 require (
-	github.com/fasthttp/router v1.4.12
+	github.com/fasthttp/router v1.4.16
 	github.com/go-test/deep v1.0.8
 	github.com/google/renameio v1.0.1
 	github.com/haproxytech/client-native/v2 v2.5.2-0.20220126142624-4a2781a21376
@@ -13,7 +13,7 @@ require (
 	github.com/pires/go-proxyproto v0.6.2
 	github.com/prometheus/client_golang v1.13.0
 	github.com/stretchr/testify v1.8.0
-	github.com/valyala/fasthttp v1.40.0
+	github.com/valyala/fasthttp v1.44.0
 	go.uber.org/automaxprocs v1.5.1
 	k8s.io/api v0.25.2
 	k8s.io/apimachinery v0.25.2
@@ -53,7 +53,7 @@ require (
 	github.com/josharian/intern v1.0.0 // indirect
 	github.com/json-iterator/go v1.1.12 // indirect
 	github.com/kballard/go-shellquote v0.0.0-20180428030007-95032a82bc51 // indirect
-	github.com/klauspost/compress v1.15.0 // indirect
+	github.com/klauspost/compress v1.15.9 // indirect
 	github.com/kr/pretty v0.3.0 // indirect
 	github.com/mailru/easyjson v0.7.6 // indirect
 	github.com/matttproud/golang_protobuf_extensions v1.0.1 // indirect
